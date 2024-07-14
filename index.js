@@ -2,16 +2,14 @@ const express = require('express');
 const admin = require('firebase-admin');
 const firebase = require('firebase/app');
 require('firebase/auth');
-const serviceAccount = require('./config/serviceAccountKey.json');
+require('dotenv').config();
+const serviceAccount = require('./src/config/config.json');
 const morgan = require('morgan');
 
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
-
-
-
 
 
 const firebaseConfig = {
@@ -31,8 +29,8 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-const authRoutes = require('./routes/auth');
-const taskRoutes = require('./routes/task');
+const authRoutes = require('./src/routes/auth');
+const taskRoutes = require('./src/routes/task');
 
 app.use('/auth', authRoutes);
 app.use('/tasks', taskRoutes);
