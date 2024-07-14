@@ -12,6 +12,8 @@ admin.initializeApp({
 
 
 
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyDjllwmoRPKSIIyONggv5YIPdY_-xIubNk",
     authDomain: "fir-api-bd537.firebaseapp.com",
